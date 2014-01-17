@@ -1,7 +1,13 @@
 # usetech-test
 
 ## Как запускать
-Сначала выполнить :
+Необходимо установить следующее:
+
+- NodeJS
+- Grunt ```npm install -g grunt grunt-cli```
+- Bower ```npm install -g bower```
+
+Потом выполнить :
 ```shell
 npm install & bower install
 ```
@@ -16,3 +22,5 @@ grunt serve
 ```shell
 grunt
 ```
+
+После этого приложение будет находиться в каталоге ```dist```
