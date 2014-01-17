@@ -1,18 +1,9 @@
 'use strict';
 
 angular.module('usetechApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
+    'ngCookies',
+    'ngSanitize',
+    'ngRoute',
 ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    .config(function($routeProvider) {
+    });
