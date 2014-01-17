@@ -1,3 +1,3 @@
 <table class="table table-stripped">
-  <tr data-ng-repeat="note in notes"><td><a href="#/note/{{note.id}}/view">{{note.label}}</a></td></tr>
+  <tr data-ng-repeat="note in notes"><td><a href="#/note/{{note.id}}/view">{{note.label}}</a><span data-ng-click="delete(note)" class="glyphicon glyphicon-remove"></span></td></tr>
 </table>
