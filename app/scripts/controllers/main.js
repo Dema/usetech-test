@@ -5,7 +5,7 @@ angular.module('usetechApp')
         var Notes = $florm('notes', {
             belongsTo: 'folders'
         });
-        var refreshNotes = function() {
+        $scope.refreshNotes = function() {
             if ($routeParams.folderId !== undefined) {
                 $scope.notes = Notes.all({
                     folder: $routeParams.folderId
@@ -14,14 +14,14 @@ angular.module('usetechApp')
                 $scope.notes = Notes.all();
             }
         };
-        refreshNotes();
+        $scope.refreshNotes();
         $scope.create = function() {
             $location.path('/note/new');
         };
         $scope.delete = function(note) {
             if (confirm('Вы уверены, что хотите удалить заметку?')) {
                 note.delete();
-                refreshNotes();
+                $scope.refreshNotes();
             }
         };
     });

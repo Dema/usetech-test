@@ -33,11 +33,27 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3"><h4>Папки</h4>
-          <div data-ng-controller="FoldersListCtrl">
+          <div data-ng-controller="FoldersListCtrl" class="ng-cloak">
             <ul>
-              <li data-ng-repeat="folder in folders"><a href="#/notes/{{folder.id}}">{{folder.label}}</a></li>
+              <li data-ng-repeat="folder in folders" data-ng-controller="FolderCtrl"> 
+              <a data-ng-dblclick="edit()" data-ng-hide="isEditing" href="#/notes/{{folder.id}}">{{folder.label}}</a>
+              <span data-ng-click="delete()" class="glyphicon glyphicon-remove"></span>
+              <span data-ng-show="isEditing">
+                <input  type="text" data-ng-model="folder.label"></input>
+                <button class="btn btn-sm" data-ng-click="save()">Сохранить</button>
+                <button class="btn btn-sm" data-ng-click="cancel()">Отмена</button>
+              </span> 
+              </li>
             </ul>
-            </div>
+            <span data-ng-controller="FolderCtrl">
+              <a data-ng-click="create()" ng-disabled="isEditing"><span class="glyphicon glyphicon-plus"></span></a>
+              <span data-ng-show="isEditing"> <!-- FIXME Не придумал как не дублировать код -->
+                <input  type="text" data-ng-model="folder.label"></input>
+                <button class="btn btn-sm" data-ng-click="save()">Сохранить</button>
+                <button class="btn btn-sm" data-ng-click="cancel()">Отмена</button>
+              </span> 
+            </span>
+          </div>
         </div>
 
         <div ng-view class="col-lg-9"/>
@@ -74,6 +90,7 @@
         <script src="scripts/controllers/foldersList.js"></script>
         <script src="scripts/controllers/noteView.js"></script>
         <script src="scripts/controllers/noteEdit.js"></script>
+        <script src="scripts/controllers/folder.js"></script>
         <!-- endbuild -->
 </body>
 </html>
