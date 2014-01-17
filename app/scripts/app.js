@@ -4,7 +4,8 @@ angular.module('usetechApp', [
     'ngCookies',
     'ngSanitize',
     'ngRoute',
-    'ngFlorm'
+    'ngFlorm',
+    'textAngular'
 ])
     .config(function($routeProvider) {
         $routeProvider
@@ -19,6 +20,10 @@ angular.module('usetechApp', [
             .when('/note/:id/view', {
                 templateUrl: 'views/noteView.html',
                 controller: 'NoteViewCtrl'
+            })
+            .when('/note/:id/edit', {
+                templateUrl: 'views/noteEdit.html',
+                controller: 'NoteEditCtrl'
             })
             .otherwise({
                 redirectTo: '/notes/'

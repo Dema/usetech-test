@@ -18,6 +18,7 @@ module.exports = function(config) {
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-florm/lib/angular-florm.js',
+      'app/bower_components/textAngular/textAngular.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

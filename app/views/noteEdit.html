@@ -1,0 +1,13 @@
+<h4>Редактирование заметки</h4>
+<form role="form">
+  <div class="form-group">
+    <label for="label">Название</label>
+    <input type="text" required class="form-control" id="label" placeholder="Введите название" data-ng-model="note.label"></input>
+  </div>
+  <div class="form-group">
+    <label for="body">Содержимое</label>
+    <div ng-required="true" text-angular text-angular-name="body" id="body" data-ng-model="note.body"></div>
+  </div>
+</form>
+<button data-ng-click="save()" class="btn btn-primary">Сохранить</button>
+<button data-ng-click="cancel()" class="btn">Отмена</button>
