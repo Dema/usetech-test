@@ -16,6 +16,10 @@ angular.module('usetechApp', [
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
+            .when('/note/:id/view', {
+                templateUrl: 'views/noteView.html',
+                controller: 'NoteViewCtrl'
+            })
             .otherwise({
                 redirectTo: '/notes/'
             });
