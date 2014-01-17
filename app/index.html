@@ -33,6 +33,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3"><h4>Папки</h4>
+          <div data-ng-controller="FoldersListCtrl">
+            <ul>
+              <li data-ng-repeat="folder in folders"><a href="#/notes/{{folder.id}}">{{folder.label}}</a></li>
+            </ul>
+            </div>
         </div>
 
         <div ng-view class="col-lg-9"/>
@@ -58,12 +63,14 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-florm/lib/angular-florm.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/foldersList.js"></script>
         <!-- endbuild -->
 </body>
 </html>
