@@ -1,7 +1,7 @@
 'use strict';
 /* global confirm */
 angular.module('usetechApp')
-    .controller('MainCtrl', function($scope, $florm, $routeParams) {
+    .controller('MainCtrl', function($scope, $florm, $routeParams, $location) {
         var Notes = $florm('notes', {
             belongsTo: 'folders'
         });

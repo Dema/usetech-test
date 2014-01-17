@@ -21,6 +21,10 @@ angular.module('usetechApp', [
                 templateUrl: 'views/noteView.html',
                 controller: 'NoteViewCtrl'
             })
+            .when('/note/new', {
+                templateUrl: 'views/noteEdit.html',
+                controller: 'NoteEditCtrl'
+            })
             .when('/note/:id/edit', {
                 templateUrl: 'views/noteEdit.html',
                 controller: 'NoteEditCtrl'

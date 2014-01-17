@@ -3,7 +3,11 @@
 angular.module('usetechApp')
     .controller('NoteEditCtrl', function($scope, $florm, $routeParams, $window, $location) {
         var Note = $florm('notes');
-        $scope.note = Note.find($routeParams.id);
+        if ($routeParams.id !== undefined) {
+            $scope.note = Note.find($routeParams.id);
+        } else {
+            $scope.note = Note.new();
+        }
         $scope.cancel = function() {
             $window.history.back();
         };
