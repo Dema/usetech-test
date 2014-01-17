@@ -8,7 +8,7 @@ angular.module('usetechApp')
         $scope.refreshNotes = function() {
             if ($routeParams.folderId !== undefined) {
                 $scope.notes = Notes.all({
-                    folder: $routeParams.folderId
+                    foldersId: $routeParams.folderId
                 });
             } else {
                 $scope.notes = Notes.all();
