@@ -6,6 +6,7 @@
 - NodeJS
 - Grunt ```npm install -g grunt grunt-cli```
 - Bower ```npm install -g bower```
+- Compass ```gem install compass```
 
 Потом выполнить :
 ```shell
