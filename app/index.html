@@ -37,21 +37,22 @@
             <ul>
               <li data-ng-repeat="folder in folders" data-ng-controller="FolderCtrl"> 
               <a data-ng-dblclick="edit()" data-ng-hide="isEditing" href="#/notes/{{folder.id}}">{{folder.label}}</a>
-              <span data-ng-click="delete()" class="glyphicon glyphicon-remove"></span>
-              <span data-ng-show="isEditing">
-                <input  type="text" data-ng-model="folder.label"></input>
-                <button class="btn btn-sm" data-ng-click="save()">Сохранить</button>
+              <form data-ng-show="isEditing" name="form" style="display: inline;">
+                <input required type="text" data-ng-model="folder.label"></input>
+                <button class="btn btn-primary btn-sm" data-ng-disabled="form.$invalid" data-ng-click="save()">Сохранить</button>
                 <button class="btn btn-sm" data-ng-click="cancel()">Отмена</button>
-              </span> 
+              </form>
+              <span data-ng-click="delete()" class="glyphicon glyphicon-remove"></span>
               </li>
             </ul>
             <span data-ng-controller="FolderCtrl">
               <a data-ng-click="create()" ng-disabled="isEditing"><span class="glyphicon glyphicon-plus"></span></a>
-              <span data-ng-show="isEditing"> <!-- FIXME Не придумал как не дублировать код -->
-                <input  type="text" data-ng-model="folder.label"></input>
-                <button class="btn btn-sm" data-ng-click="save()">Сохранить</button>
+
+              <form data-ng-show="isEditing" name="form" style="display: inline;"><!-- FIXME Не придумал как не дублировать код -->
+                <input required type="text" data-ng-model="folder.label"></input>
+                <button class="btn btn-primary btn-sm" data-ng-disabled="form.$invalid" data-ng-click="save()">Сохранить</button>
                 <button class="btn btn-sm" data-ng-click="cancel()">Отмена</button>
-              </span> 
+              </form>
             </span>
           </div>
         </div>
