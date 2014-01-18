@@ -12,6 +12,9 @@ angular.module('usetechApp')
         }
         var Folders = $florm('folders'); //FIXME Убрать дублирование
         $scope.folders = Folders.all();
+        if ($scope.note.folders !== undefined) {
+            $scope.newFolder = $scope.note.folders.id; //Отдельную переменную завёл для того, чтобы обойти зацикливание $digest
+        }
 
         $scope.cancel = function() {
             $window.history.back();
