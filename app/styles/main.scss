@@ -93,12 +93,6 @@ body {
 }
 
 /* AngularJS stuff */
-.ng-invalid.ng-dirty {
-    @extend .has-error;
-}
-.ng-valid.ng-dirty {
-    @extend .has-success;
-}
 .ta-editor {
     min-height: 300px;
     height: auto;

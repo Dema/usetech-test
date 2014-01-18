@@ -1,16 +1,16 @@
 <h4>Редактирование заметки</h4>
 <form role="form" name="form">
-  <div class="form-group">
+  <div class="form-group" data-ng-class="{'has-error':form.label.$invalid,'has-success':form.label.$valid}">
     <label for="label">Название</label>
-    <input type="text" required class="form-control" id="label" placeholder="Введите название" data-ng-model="note.label"></input>
+    <input type="text" required class="form-control" name="label" id="label" placeholder="Введите название" data-ng-model="note.label"></input>
   </div>
-  <div class="form-group">
+  <div class="form-group" data-ng-class="{'has-error':form.folder.$invalid,'has-success':form.folder.$valid}">
     <label for="label">Папка</label>
-    <select data-ng-model="newFolder" class="form-control" required data-ng-options="folder.id as folder.label for folder in folders"></select>
+    <select data-ng-model="newFolder" class="form-control" name="folder" required data-ng-options="folder.id as folder.label for folder in folders"></select>
   </div>
-  <div class="form-group">
+  <div class="form-group" data-ng-class="{'has-error':form.body.$invalid,'has-success':form.body.$valid}">
     <label for="body">Содержимое</label>
-    <div ng-required="true" text-angular text-angular-name="body" id="body" data-ng-model="note.body"></div>
+    <div ng-required="true" name="body" text-angular text-angular-name="body" id="body" data-ng-model="note.body"></div>
   </div>
 </form>
 <button data-ng-click="save()" data-ng-disabled="form.$invalid" class="btn btn-primary">Сохранить</button>
