@@ -10,7 +10,7 @@ angular.module('usetechApp')
         } else {
             $scope.note = Note.new();
         }
-        var Folders = $florm('folders');//FIXME Убрать дублирование
+        var Folders = $florm('folders'); //FIXME Убрать дублирование
         $scope.folders = Folders.all();
 
         $scope.cancel = function() {
