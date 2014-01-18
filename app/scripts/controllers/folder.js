@@ -1,5 +1,5 @@
 'use strict';
-/* global confirm */
+/* global confirm, $ */
 angular.module('usetechApp')
     .controller('FolderCtrl', function($scope) {
         $scope.isEditing = false;
@@ -21,6 +21,9 @@ angular.module('usetechApp')
         };
         $scope.delete = function() {
             if (confirm('Вы уверены, что хотите удалить папку и все её заметки?')) {
+                $.each($scope.folder.notes, function(idx, note) {
+                    note.delete();
+                });
                 $scope.folder.delete();
                 $scope.refreshFolders();
             }
