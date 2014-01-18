@@ -15,4 +15,4 @@
 </form>
 <button data-ng-click="save()" data-ng-disabled="form.$invalid" class="btn btn-primary">Сохранить</button>
 <button data-ng-click="cancel()" class="btn">Отмена</button>
-<button data-ng-click="delete()" class="btn btn-danger">Удалить</button>
+<button data-ng-click="delete()" data-ng-show="note.id !== undefined" class="btn btn-danger">Удалить</button>
