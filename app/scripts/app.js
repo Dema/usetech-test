@@ -17,15 +17,15 @@ angular.module('usetechApp', [
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
-            .when('/note/:id/view', {
+            .when('/notes/:folderId/:noteId/view', {
                 templateUrl: 'views/noteView.html',
                 controller: 'NoteViewCtrl'
             })
-            .when('/note/new', {
+            .when('/notes/:folderId/new', {
                 templateUrl: 'views/noteEdit.html',
                 controller: 'NoteEditCtrl'
             })
-            .when('/note/:id/edit', {
+            .when('/notes/:folderId/:noteId/edit', {
                 templateUrl: 'views/noteEdit.html',
                 controller: 'NoteEditCtrl'
             })

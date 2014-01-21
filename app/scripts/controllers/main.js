@@ -1,22 +1,28 @@
 'use strict';
 /* global confirm */
 angular.module('usetechApp')
-    .controller('MainCtrl', function($scope, $florm, $routeParams, $location) {
-        var Notes = $florm('notes', {
-            belongsTo: 'folders'
-        });
+    .controller('MainCtrl', function($scope, $routeParams, $location, FolderListService) {
+        $scope.folderListService = FolderListService;
         $scope.refreshNotes = function() {
             if ($routeParams.folderId !== undefined) {
-                $scope.notes = Notes.all({
-                    foldersId: $routeParams.folderId
-                });
+                try {
+                    $scope.currentFolder = FolderListService.findFolder($routeParams.folderId);
+                } catch (e) {
+                    $scope.currentFolder = undefined;
+                    $scope.notes = FolderListService.findNotes();
+                }
+                $scope.notes = FolderListService.findNotes($routeParams.folderId);
             } else {
-                $scope.notes = Notes.all();
+                $scope.notes = FolderListService.findNotes();
             }
         };
         $scope.refreshNotes();
+        $scope.$watch('folderListService.folders', function() {
+            //Отслеживаем переименование и удаление папки
+            $scope.refreshNotes();
+        });
         $scope.create = function() {
-            $location.path('/note/new');
+            $location.path('/notes/' + ($scope.currentFolder && $scope.currentFolder.id || undefined) + '/new');
         };
         $scope.delete = function(note) {
             if (confirm('Вы уверены, что хотите удалить заметку?')) {

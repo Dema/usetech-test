@@ -6,7 +6,7 @@
   </div>
   <div class="form-group" data-ng-class="{'has-error':form.folder.$invalid,'has-success':form.folder.$valid}">
     <label for="label">Папка</label>
-    <select data-ng-model="newFolder" class="form-control" name="folder" required data-ng-options="folder.id as folder.label for folder in folders"></select>
+    <select data-ng-model="noteFolder" class="form-control" name="folder" required data-ng-options="folder.id as folder.label for folder in folderListService.folders"></select>
   </div>
   <div class="form-group" data-ng-class="{'has-error':form.body.$invalid,'has-success':form.body.$valid}">
     <label for="body">Содержимое</label>

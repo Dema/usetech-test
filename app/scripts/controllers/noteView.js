@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('usetechApp')
-    .controller('NoteViewCtrl', function($scope, $florm, $routeParams, $location) {
-        var Note = $florm('notes');
-        $scope.note = Note.find($routeParams.id);
+    .controller('NoteViewCtrl', function($scope, FolderListService, $routeParams, $location) {
+
+        $scope.note = FolderListService.findNote($routeParams.noteId);
 
         $scope.edit = function() {
-            $location.path('/note/' + $scope.note.id + '/edit');
+            $location.path('/notes/' + $scope.note.folders.id + '/' + ($scope.note.id) + '/edit');
         };
     });

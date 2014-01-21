@@ -1,15 +1,10 @@
 'use strict';
 
 angular.module('usetechApp')
-    .controller('FoldersListCtrl', function($scope, $florm) {
-        var Folders = $florm('folders', {
-            hasMany: 'notes'
-        });
+    .controller('FoldersListCtrl', function($scope, $florm, FolderListService) {
+        $scope.folderListService = FolderListService;
         $scope.refreshFolders = function() {
-            $scope.folders = Folders.all();
+            FolderListService.refreshFolders();
         };
         $scope.refreshFolders();
-        $scope.newFolder = function() {
-            return Folders.new();
-        };
     });

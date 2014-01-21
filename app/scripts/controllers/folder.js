@@ -1,20 +1,20 @@
 'use strict';
 /* global confirm, $ */
 angular.module('usetechApp')
-    .controller('FolderCtrl', function($scope) {
+    .controller('FolderCtrl', function($scope, FolderListService) {
         $scope.isEditing = false;
         $scope.create = function() {
-            $scope.folder = $scope.newFolder(); //FIXME Как-то кривовато, но дублировать Folders не хочется
+            $scope.folder = FolderListService.createFolder();
             $scope.isEditing = true;
         };
         $scope.save = function() {
             $scope.folder.save();
-            $scope.refreshFolders();
+            FolderListService.refreshFolders();
             $scope.isEditing = false;
         };
         $scope.cancel = function() {
             $scope.isEditing = false;
-            $scope.refreshFolders(); //FIXME Некрасиво, надо перечитывать только одну папку
+            FolderListService.refreshFolders();
         };
         $scope.edit = function() {
             $scope.isEditing = true;
