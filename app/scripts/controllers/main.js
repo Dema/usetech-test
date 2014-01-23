@@ -22,7 +22,7 @@ angular.module('usetechApp')
             $scope.refreshNotes();
         });
         $scope.create = function() {
-            $location.path('/notes/' + ($scope.currentFolder && $scope.currentFolder.id || undefined) + '/new');
+            $location.path(['/notes', ($scope.currentFolder && $scope.currentFolder.id || 'undefined'), 'new'].join('/'));
         };
         $scope.delete = function(note) {
             if (confirm('Вы уверены, что хотите удалить заметку?')) {
